@@ -8,6 +8,7 @@
 
 :root {
   --red: #e23636;
+  --secondary-red: #b42626;
   --black: #111111;
   --gray: #504a4a;
   --skyblue: #518cca;
@@ -30,11 +31,18 @@ img {
   font-family: "Marvel", cursive;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 /* **********     Header     ********** */
 .header {
   background-color: var(--black);
   position: sticky;
   top: -0.5rem;
+  z-index: 99;
 }
 
 .header-container {
@@ -63,14 +71,23 @@ img {
   gap: 2rem;
 }
 
-.options a {
+.options a[href*="html"] {
   text-decoration: none;
   transition: transform 0.5s ease, color 0.5s ease;
   color: var(--lightgray);
   position: relative;
 }
 
-.options a:hover {
+.theme-btn {
+  text-decoration: none;
+  transition: transform 0.5s ease;
+}
+
+.theme-btn:hover {
+  transform: scale(1.5);
+}
+
+.options a[href*="html"]:hover {
   transform: translateY(0.1rem);
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
@@ -129,7 +146,8 @@ img {
   color: var(--black);
   display: inline-block;
   padding: 0.5rem 0.5rem;
-  transition: color 0.5s ease;
+  transition: color 0.5s ease, transform 0.5s ease;
+  text-decoration: none;
 }
 .words a:first-child {
   padding-left: 0;
@@ -140,10 +158,7 @@ img {
 
 .words a:hover {
   color: var(--red);
-}
-
-.words a:target {
-  color: blue;
+  transform: scale(1.5);
 }
 
 .separator {
@@ -163,15 +178,18 @@ img {
 }
 
 .card {
-  border: thin solid black;
   background-color: var(--black);
   border-radius: 5%;
   cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.5s ease, background-color 0.5s ease;
 }
 
 .card > img {
   border-radius: 5% 5% 0 0;
   object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  object-position: center;
 }
 
 .card > p {
@@ -183,9 +201,66 @@ img {
   font-weight: 300;
 }
 
-/* **********     Media Queries     ********** */
+.card:hover {
+  transform: translateY(0.5rem);
+  background-color: var(--secondary-red);
+}
 
-@media screen and (max-width: 480px) {
+.card:hover img {
+  transform: scale(1.1) translateY(-0.6rem);
+  filter: brightness(1.2);
+}
+
+/* **********     Hero     ********** */
+
+.hero-container {
+  flex-grow: 1;
+  display: flex;
+}
+.hero-image {
+  background-image: url("./marvel.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  min-width: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+.hero-background {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  transition: backdrop-filter 0.5s ease;
+}
+
+.input-box:hover + div {
+  backdrop-filter: blur(0.2rem);
+}
+
+.input-box {
+  z-index: 3;
+}
+
+.input-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container * {
+  cursor: pointer;
+}
+/* **********     Media Queries     ********** */
+@media screen and (max-width: 560px) {
   .header-container {
     display: flex;
     flex-direction: column;
@@ -194,8 +269,8 @@ img {
   .logo {
     text-align: center;
   }
-  .options a:hover {
-    padding-bottom: 0;
+  .options a[href*="html"]:hover {
+    padding-bottom: 1px;
     padding-top: 0;
   }
 }
