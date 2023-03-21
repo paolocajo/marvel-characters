@@ -35,6 +35,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--white);
 }
 
 /* **********     Header     ********** */
@@ -363,7 +364,85 @@ body {
 .none {
   display: none;
 }
+
+/* **********     Character detail     ********** */
+.character-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.character-content {
+  display: flex;
+  padding: 3rem 2rem;
+  gap: 3rem;
+  color: var(--black);
+}
+.character-content > * {
+  width: 50%;
+}
+.character-content > img {
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+.character-detail {
+  align-self: center;
+  margin-top: -10%;
+}
+.character-data-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.pill {
+  font-size: 0.6rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.pill > * {
+  padding: 0.3rem 0.8rem 0.2rem;
+  display: inline-block;
+}
+.pill:nth-child(odd) .title-pill {
+  background-color: var(--skyblue);
+}
+.pill:nth-child(even) .title-pill {
+  background-color: var(--orange);
+}
+.content-pill {
+  background-color: var(--lightgray);
+}
+.character-description {
+  font-weight: 300;
+  margin-top: 1.5rem;
+  text-align: justify;
+}
+.character-comics {
+  color: var(--skyblue);
+  margin-top: 2rem;
+  display: inline-block;
+  transition: color 0.5s ease;
+}
+.character-comics:hover {
+  color: var(--red);
+}
+
 /* **********     Media Queries     ********** */
+@media screen and (max-width: 1024px) {
+  .character-content {
+    gap: 2rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .character-detail {
+    margin-top: 0;
+  }
+}
+@media screen and (max-width: 720px) {
+  .character-content {
+    gap: 1.5rem;
+  }
+}
 @media screen and (max-width: 560px) {
   .header-container {
     display: flex;
@@ -377,8 +456,20 @@ body {
     padding-bottom: 1px;
     padding-top: 0;
   }
-
   .input-box {
     width: 80vw;
+  }
+  .character-content {
+    padding: 2rem 1.5rem;
+    gap: 1rem;
+  }
+  .character-content > * {
+    width: 100%;
+  }
+  .character-content > img {
+    align-self: center;
+  }
+  .character-content {
+    flex-direction: column;
   }
 }
