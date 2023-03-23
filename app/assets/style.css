@@ -177,6 +177,9 @@ body {
   padding: 1rem 1.5rem;
   align-items: flex-start;
 }
+.cards-container a {
+  text-decoration: none;
+}
 
 .card {
   background-color: var(--black);
@@ -186,14 +189,14 @@ body {
   transition: transform 0.5s ease, background-color 0.5s ease;
 }
 
-.card > img {
+.card img {
   border-radius: 5% 5% 0 0;
   object-fit: cover;
   transition: transform 0.5s ease, filter 0.5s ease;
   object-position: center;
 }
 
-.card > p {
+.card p {
   text-align: center;
   margin: 0;
   padding: 0.2rem 0.2rem 0.5rem;
@@ -265,6 +268,7 @@ body {
 
 .input-box {
   margin-top: -9rem;
+  transition: width 0.1s ease;
 }
 
 .input-box input[type="search"] {
@@ -432,15 +436,24 @@ body {
   .character-content {
     gap: 2rem;
   }
+  .input-box {
+    width: 60vw;
+  }
 }
 @media screen and (max-width: 900px) {
   .character-detail {
     margin-top: 0;
   }
+  .input-box {
+    width: 70vw;
+  }
 }
 @media screen and (max-width: 720px) {
   .character-content {
     gap: 1.5rem;
+  }
+  .input-box {
+    width: 80vw;
   }
 }
 @media screen and (max-width: 560px) {
@@ -455,9 +468,6 @@ body {
   .options a[href*="html"]:hover {
     padding-bottom: 1px;
     padding-top: 0;
-  }
-  .input-box {
-    width: 80vw;
   }
   .character-content {
     padding: 2rem 1.5rem;
