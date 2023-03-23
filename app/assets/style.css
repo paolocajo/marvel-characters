@@ -35,6 +35,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-width: 100%;
   background-color: var(--white);
 }
 
@@ -162,9 +163,11 @@ body {
   transform: scale(1.5);
 }
 
-.separator {
+hr {
   max-width: 1200px;
-  color: var(--lightgray);
+  background-color: var(--lightgray);
+  height: 1px;
+  border: none;
 }
 
 /* **********     Character container     ********** */
@@ -365,8 +368,21 @@ body {
   background-color: var(--lightgray);
 }
 
+/* **********     Loader     ********** */
+
+.loader {
+  display: block;
+  width: auto;
+  height: 100%;
+  margin: 5% auto;
+}
+
 .none {
   display: none;
+}
+
+.block {
+  display: block;
 }
 
 /* **********     Character detail     ********** */
