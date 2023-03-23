@@ -3,7 +3,7 @@ export function Words() {
   $words.classList.add("words-container");
   $words.innerHTML = `
     <article class="words">
-      <a href="#all">#</a>
+      <a href="./index.html" class="active-word">#</a>
       <a href="#a">A</a>
       <a href="#b">B</a>
       <a href="#c">C</a>

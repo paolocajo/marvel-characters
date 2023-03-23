@@ -170,6 +170,12 @@ hr {
   border: none;
 }
 
+.words a.active-word {
+  color: var(--red);
+  scale: 1.5;
+  font-weight: 700;
+}
+
 /* **********     Character container     ********** */
 .cards-container {
   max-width: 1200px;
@@ -197,6 +203,12 @@ hr {
   object-fit: cover;
   transition: transform 0.5s ease, filter 0.5s ease;
   object-position: center;
+  width: 100%;
+  height: 30vh;
+}
+
+.not-available {
+  object-position: left bottom;
 }
 
 .card p {
@@ -383,6 +395,12 @@ hr {
 
 .block {
   display: block;
+}
+
+/* **********     Error     ********** */
+
+.error {
+  text-align: center;
 }
 
 /* **********     Character detail     ********** */
