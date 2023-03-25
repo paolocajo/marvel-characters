@@ -23,28 +23,52 @@ export async function Router() {
     $root.appendChild(CharactersContainer());
     const $charactersContainer = d.querySelector(".characters-container");
     $charactersContainer.appendChild(Loader());
-    await ajax(
-      {
-        url: api.CHARACTERS,
-        cbSuccess: (characters) => {
-          console.log(characters);
-          let {
-            data: { results },
-          } = characters;
-          console.log(results);
-          let html = "";
-          results.forEach((character) => (html += Card(character)));
+    if (hash < 2) {
+      await ajax(
+        {
+          url: api.CHARACTERS,
+          cbSuccess: (characters) => {
+            console.log(characters);
+            let {
+              data: { results },
+            } = characters;
+            console.log(results);
+            let html = "";
+            results.forEach((character) => (html += Card(character)));
 
-          $charactersContainer.querySelector(".cards-container").innerHTML =
-            html;
-          d.querySelector(".loader").style.display = "none";
+            $charactersContainer.querySelector(".cards-container").innerHTML =
+              html;
+            d.querySelector(".loader").style.display = "none";
+          },
         },
-      },
-      ".characters-container"
-    );
+        ".characters-container"
+      );
+    }
+    if (hash.length === 2) {
+      await ajax(
+        {
+          url: `${api.CHARACTER_STARTS_WITH}${hash.slice(1)}&${
+            api.API_KEY_COMPLETE
+          }`,
+          cbSuccess: (characters) => {
+            console.log(characters);
+            let {
+              data: { results },
+            } = characters;
+            console.log(results);
+            let html = "";
+            results.forEach((character) => (html += Card(character)));
+
+            $charactersContainer.querySelector(".cards-container").innerHTML =
+              html;
+            d.querySelector(".loader").style.display = "none";
+          },
+        },
+        ".characters-container"
+      );
+    }
     //
   } else if (pathname === "/detail.html") {
-    $root.appendChild(Title());
     $root.appendChild(CharacterContainer());
     const $characterContainer = d.querySelector(".character-container");
     $characterContainer.appendChild(Loader());
