@@ -16,7 +16,7 @@ export async function Router() {
 
   let { pathname, hash } = location;
 
-  if (pathname === "/index.html") {
+  if (pathname === "/index.html" || pathname === "/") {
     $root.appendChild(Title());
     $root.appendChild(Words());
     $root.appendChild(Separator());
