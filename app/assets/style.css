@@ -332,26 +332,26 @@ hr {
   background-color: var(--white);
   width: 100%;
   border-radius: 0.5rem;
-  height: 35vh;
-  overflow: hidden;
+  max-height: 35vh;
+  overflow: auto;
+  /* overflow-x: hidden; */
 }
 
 .scroll {
   display: flex;
   flex-direction: column;
   height: 100%;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   overflow-x: hidden;
 }
 
-.scroll::-webkit-scrollbar {
+/* .scroll::-webkit-scrollbar {
   width: 10px;
   background-color: var(--gray);
 }
 
 .scroll::-webkit-scrollbar-thumb {
   background-color: #e3dbdb;
-  /* border-radius: 5px; */
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
@@ -360,7 +360,7 @@ hr {
 }
 .scroll::-webkit-scrollbar-thumb:hover {
   box-shadow: inset 0 0 6px rgba(68, 68, 68, 0.3);
-}
+} */
 
 .search-results a {
   align-self: center;

@@ -8,6 +8,8 @@ import { Words } from "./Words.js";
 import { Card } from "./Card.js";
 import { CharacterContainer } from "./CharacterContainer.js";
 import { Detail } from "./Detail.js";
+import { Hero } from "./Hero.js";
+import { SearchLink } from "./SearchLink.js";
 
 export async function Router() {
   const d = document,
@@ -96,5 +98,60 @@ export async function Router() {
       },
       ".characters-container"
     );
+  } else if (pathname === "/search.html") {
+    $root.appendChild(Hero());
+    const $inputSearch = d.getElementById("search-character");
+    const $searchResults = d.querySelector(".search-results");
+    $searchResults.querySelector(".scroll").appendChild(Loader());
+    d.addEventListener("click", (e) => {
+      if (e.target.matches(".search-btn") && $inputSearch.value.length >= 1) {
+        location.href = `./detail.html#${$inputSearch.value}`;
+        console.log("ga");
+      }
+    });
+    $inputSearch.oninput = (e) => {
+      if (e.target.value.length === 0) {
+        $searchResults.classList.remove("block");
+      }
+    };
+    d.addEventListener("keyup", async (e) => {
+      if (e.target === $inputSearch) {
+        // console.log(e.key); // devuelve a   l   g   o
+        // console.log(e.target.value); // de vuelve a  al  alg  algo
+        if (e.key === "Escape") e.target.value = "";
+        if (e.target.value.length >= 1) {
+          if (e.key === "Enter")
+            location.href = `./detail.html#${e.target.value}`;
+          $searchResults.classList.add("block");
+          await ajax(
+            {
+              url: `${api.CHARACTER_STARTS_WITH}${e.target.value}&${api.API_KEY_COMPLETE}`,
+              cbSuccess: (characters) => {
+                console.log(characters);
+                let {
+                  data: { results },
+                  data,
+                } = characters;
+                console.log(results);
+                let html = "";
+                results.forEach((character) => (html += SearchLink(character)));
+                $searchResults.querySelector(".scroll").innerHTML = html;
+                if (data.count === 0) {
+                  $searchResults.querySelector(
+                    ".scroll"
+                  ).innerHTML = `<a>No results found for
+            <mark>${e.target.value}</mark></a>`;
+                  console.log("gaa");
+                }
+                //d.querySelector(".loader").style.display = "none";
+              },
+            },
+            ".scroll"
+          );
+        } else {
+          $searchResults.classList.remove("block");
+        }
+      }
+    });
   }
 }
