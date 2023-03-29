@@ -116,8 +116,6 @@ export async function Router() {
     };
     d.addEventListener("keyup", async (e) => {
       if (e.target === $inputSearch) {
-        // console.log(e.key); // devuelve a   l   g   o
-        // console.log(e.target.value); // de vuelve a  al  alg  algo
         if (e.key === "Escape") e.target.value = "";
         if (e.target.value.length >= 1) {
           if (e.key === "Enter")
@@ -141,7 +139,6 @@ export async function Router() {
                     ".scroll"
                   ).innerHTML = `<a>No results found for
             <mark>${e.target.value}</mark></a>`;
-                  console.log("gaa");
                 }
                 //d.querySelector(".loader").style.display = "none";
               },
