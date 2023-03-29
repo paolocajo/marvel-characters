@@ -30,11 +30,11 @@ export async function Router() {
         {
           url: api.CHARACTERS,
           cbSuccess: (characters) => {
-            console.log(characters);
+            // console.log(characters);
             let {
               data: { results },
             } = characters;
-            console.log(results);
+            // console.log(results);
             let html = "";
             results.forEach((character) => (html += Card(character)));
 
@@ -53,11 +53,11 @@ export async function Router() {
             api.API_KEY_COMPLETE
           }`,
           cbSuccess: (characters) => {
-            console.log(characters);
+            // console.log(characters);
             let {
               data: { results },
             } = characters;
-            console.log(results);
+            // console.log(results);
             let html = "";
             results.forEach((character) => (html += Card(character)));
 
@@ -86,7 +86,7 @@ export async function Router() {
 
             return;
           }
-          console.log(character);
+          // console.log(character);
           let {
             data: { results },
           } = character;
@@ -106,7 +106,6 @@ export async function Router() {
     d.addEventListener("click", (e) => {
       if (e.target.matches(".search-btn") && $inputSearch.value.length >= 1) {
         location.href = `./detail.html#${$inputSearch.value}`;
-        console.log("ga");
       }
     });
     $inputSearch.oninput = (e) => {
@@ -125,12 +124,12 @@ export async function Router() {
             {
               url: `${api.CHARACTER_STARTS_WITH}${e.target.value}&${api.API_KEY_COMPLETE}`,
               cbSuccess: (characters) => {
-                console.log(characters);
+                // console.log(characters);
                 let {
                   data: { results },
                   data,
                 } = characters;
-                console.log(results);
+                // console.log(results);
                 let html = "";
                 results.forEach((character) => (html += SearchLink(character)));
                 $searchResults.querySelector(".scroll").innerHTML = html;

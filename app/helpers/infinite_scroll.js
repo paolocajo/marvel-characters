@@ -33,12 +33,12 @@ export async function InfiniteScroll() {
         {
           url: apiURL,
           cbSuccess: (characters) => {
-            console.log(characters);
+            // console.log(characters);
             let {
               data: { results },
               data: { count },
             } = characters;
-            console.log(results);
+            // console.log(results);
 
             if (count === 0) {
               d.querySelector(".loader").style.display = "none";
@@ -78,7 +78,6 @@ export async function InfiniteScroll() {
 
         if (pathname === "/search.html" && $inputSearch.value.length >= 1) {
           apiURL = `${api.CHARACTER_STARTS_WITH}${$inputSearch.value}&offset=${api.offset}&${api.API_KEY_COMPLETE}`;
-          console.log("test");
         } else {
           return false;
         }
@@ -95,7 +94,7 @@ export async function InfiniteScroll() {
                 data: { results },
                 data: { count },
               } = characters;
-              console.log(results);
+              // console.log(results);
 
               if (count === 0) {
                 $scroll.removeChild(d.querySelector(".loader"));

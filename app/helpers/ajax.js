@@ -5,7 +5,7 @@ export async function ajax(props, errorTag) {
     .then((res) => (res.ok ? res.json() : Promise.reject(res)))
     .then((json) => cbSuccess(json))
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
       let message =
         err.statusText || "An error occurred while accessing the API";
       document.querySelector(
