@@ -11,6 +11,7 @@ const API_TS = "ts=1",
   CHARACTER_STARTS_WITH = `${API_MARVEL}/characters?nameStartsWith=`;
 
 let offset = 20;
+let loading = false;
 
 export default {
   API_KEY_COMPLETE,
@@ -19,4 +20,5 @@ export default {
   CHARACTER_NAME,
   CHARACTER_STARTS_WITH,
   offset,
+  loading,
 };

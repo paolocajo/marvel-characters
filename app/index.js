@@ -3,6 +3,7 @@ import { App } from "./App.js";
 
 document.addEventListener("DOMContentLoaded", App);
 window.addEventListener("hashchange", () => {
-  api.offset = 0;
+  api.offset = 20;
+  api.loading = false;
   App();
 });
