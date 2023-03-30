@@ -10,7 +10,7 @@ export async function ajax(props, errorTag) {
         err.statusText || "An error occurred while accessing the API";
       document.querySelector(
         `${errorTag}`
-      ).innerHTML = `<div class="error"><p>Error ${err.status}: ${message}</p></div>`;
+      ).innerHTML = `<div class="error" data-color-dark="white"><p>Error ${err.status}: ${message}</p></div>`;
 
       //document.querySelector(".loader").style.display = "none";
     });

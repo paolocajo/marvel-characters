@@ -81,7 +81,7 @@ export async function Router() {
         cbSuccess: (character) => {
           if (character.data.count == 0) {
             $characterContainer.innerHTML = `
-            <div class="error"><p>The character <mark>${hash.slice(
+            <div class="error" data-color-dark="lightgray"><p>The character <mark>${hash.slice(
               1
             )}</mark> is not found</p></ div>`;
 
@@ -137,7 +137,7 @@ export async function Router() {
                 if (data.count === 0) {
                   $searchResults.querySelector(
                     ".scroll"
-                  ).innerHTML = `<a>No results found for
+                  ).innerHTML = `<a data-color-dark="white">No results found for
             <mark>${e.target.value}</mark></a>`;
                 }
                 //d.querySelector(".loader").style.display = "none";
