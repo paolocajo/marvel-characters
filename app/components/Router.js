@@ -10,6 +10,7 @@ import { CharacterContainer } from "./CharacterContainer.js";
 import { Detail } from "./Detail.js";
 import { Hero } from "./Hero.js";
 import { SearchLink } from "./SearchLink.js";
+import { darkThemeLoad } from "../helpers/dark_theme_load.js";
 
 export async function Router() {
   const d = document,
@@ -140,6 +141,7 @@ export async function Router() {
             <mark>${e.target.value}</mark></a>`;
                 }
                 //d.querySelector(".loader").style.display = "none";
+                darkThemeLoad();
               },
             },
             ".scroll"

@@ -12,15 +12,16 @@ export function Detail(props) {
       : 'class="character-img"'
   }>
       <article class="character-detail">
-    <h2 class="character-name">
+    <h2 class="character-name" data-color-dark="white">
           ${name}
     </h2>
     <div class="character-data-container">
           <span class="pill"><span class="title-pill">ID</span><span class="content-pill">#${id}</span></span>
           <span class="pill"><span class="title-pill">Modified</span><span class="content-pill" datetime="${modified}">${dateFormat}</span></span>
         </div>
-    <p class="character-description">${(description ||=
-      "Description not available")}</p>
+    <p class="character-description" data-color-dark="lightgray">${
+      description || "Description not available"
+    }</p>
     <a href="${urlComics}" target="_blank" rel=”noreferrer noopener” class="character-comics">See all comics</a>
   `;
 }

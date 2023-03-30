@@ -171,7 +171,7 @@ hr {
 }
 
 .words a.active-word {
-  color: var(--red);
+  color: var(--red) !important;
   scale: 1.5;
   font-weight: 700;
 }
@@ -463,6 +463,20 @@ hr {
 }
 .character-comics:hover {
   color: var(--red);
+}
+
+/* **********     Media Queries     ********** */
+.color-lightgray {
+  color: var(--lightgray) !important;
+}
+.color-white {
+  color: var(--white) !important;
+}
+.bg-black {
+  background-color: var(--black) !important;
+}
+.bg-red {
+  background-color: var(--red) !important;
 }
 
 /* **********     Media Queries     ********** */

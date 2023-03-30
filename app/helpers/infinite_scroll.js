@@ -3,6 +3,7 @@ import { Card } from "../components/Card.js";
 import { ajax } from "./ajax.js";
 import { SearchLink } from "../components/SearchLink.js";
 import { Loader } from "../components/Loader.js";
+import { darkThemeLoad } from "./dark_theme_load.js";
 
 export async function InfiniteScroll() {
   const d = document,
@@ -54,6 +55,7 @@ export async function InfiniteScroll() {
             d.querySelector(".loader").style.display = "none";
             api.loading = false;
             api.offset += 20;
+            darkThemeLoad();
           },
         },
         ".characters-container"
@@ -112,6 +114,7 @@ export async function InfiniteScroll() {
               //d.querySelector(".loader").style.display = "none";
               api.loading = false;
               api.offset += 20;
+              darkThemeLoad();
             },
           },
           ".scroll"
@@ -119,6 +122,8 @@ export async function InfiniteScroll() {
         $inputSearch.oninput = (e) => {
           api.loading = false;
           api.offset = 20;
+          $searchResults.classList.remove("block");
+          darkThemeLoad();
         };
       }
     });

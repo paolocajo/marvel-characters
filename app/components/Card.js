@@ -5,7 +5,7 @@ export function Card(props) {
 
   return `
     <a href="./detail.html#${name.toLowerCase()}" data-id="${id}">
-      <article class="card">
+      <article class="card" data-bg-dark="red">
         <img src="${thumbnail.path}.${thumbnail.extension}" alt="${name}" ${
     imgNotAvailable ? 'class="not-available"' : ""
   }>
