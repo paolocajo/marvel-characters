@@ -18,7 +18,10 @@ export async function InfiniteScroll() {
     if (!api.loading && scrollTop + clientHeight >= scrollHeight - 50) {
       api.loading = true;
 
-      if (pathname === "/index.html" || pathname === "/") {
+      if (
+        pathname === "/marvel-characters/index.html" ||
+        pathname === "/marvel-characters/"
+      ) {
         if (hash < 2) apiURL = `${api.CHARACTERS}&offset=${api.offset}`;
         if (hash.length === 2)
           apiURL = `${api.CHARACTER_STARTS_WITH}${hash.slice(1)}&offset=${
@@ -64,7 +67,7 @@ export async function InfiniteScroll() {
   });
 
   //SEARCH
-  if (pathname === "/search.html") {
+  if (pathname === "/marvel-characters/search.html") {
     const $scroll = d.querySelector(".scroll");
     let apiURL;
     $scroll.addEventListener("scroll", async (e) => {
@@ -78,7 +81,10 @@ export async function InfiniteScroll() {
       if (!api.loading && scrollTop + clientHeight >= scrollHeight - 50) {
         api.loading = true;
 
-        if (pathname === "/search.html" && $inputSearch.value.length >= 1) {
+        if (
+          pathname === "/marvel-characters/search.html" &&
+          $inputSearch.value.length >= 1
+        ) {
           apiURL = `${api.CHARACTER_STARTS_WITH}${$inputSearch.value}&offset=${api.offset}&${api.API_KEY_COMPLETE}`;
         } else {
           return false;

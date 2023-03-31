@@ -19,7 +19,10 @@ export async function Router() {
 
   let { pathname, hash } = location;
 
-  if (pathname === "/index.html" || pathname === "/") {
+  if (
+    pathname === "/marvel-characters/index.html" ||
+    pathname === "/marvel-characters/"
+  ) {
     $root.appendChild(Title());
     $root.appendChild(Words());
     $root.appendChild(Separator());
@@ -71,7 +74,7 @@ export async function Router() {
       );
     }
     //
-  } else if (pathname === "/detail.html") {
+  } else if (pathname === "/marvel-characters/detail.html") {
     $root.appendChild(CharacterContainer());
     const $characterContainer = d.querySelector(".character-container");
     $characterContainer.appendChild(Loader());
@@ -99,7 +102,7 @@ export async function Router() {
       },
       ".characters-container"
     );
-  } else if (pathname === "/search.html") {
+  } else if (pathname === "/marvel-characters/search.html") {
     $root.appendChild(Hero());
     const $inputSearch = d.getElementById("search-character");
     const $searchResults = d.querySelector(".search-results");
