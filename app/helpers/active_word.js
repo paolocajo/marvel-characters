@@ -1,7 +1,11 @@
 export function activeWord() {
   let { hash, pathname } = location;
 
-  if ((pathname === "/index.html" || pathname === "/") && hash.length === 2) {
+  if (
+    (pathname === "/marvel-characters/index.html" ||
+      pathname === "/marvel-characters/") &&
+    hash.length === 2
+  ) {
     let wordURL = hash.slice(1);
     let $words = document.querySelectorAll(".words a[href]");
     document.querySelector(`.words a[href]`).classList.remove("active-word");
