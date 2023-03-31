@@ -9,6 +9,6 @@ export async function App() {
 
   $root.appendChild(Header());
   await Router();
-  InfiniteScroll();
+  await InfiniteScroll();
   activeWord();
 }
