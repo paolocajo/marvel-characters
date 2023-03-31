@@ -465,7 +465,7 @@ hr {
   color: var(--red);
 }
 
-/* **********     Media Queries     ********** */
+/* **********     Dark Theme     ********** */
 .color-lightgray {
   color: var(--lightgray) !important;
 }
