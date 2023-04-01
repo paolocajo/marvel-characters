@@ -77,6 +77,7 @@ export async function InfiniteScroll() {
         { pathname } = w.location;
       // console.log(scrollTop, clientHeight, scrollHeight);
       const $inputSearch = d.getElementById("search-character");
+      const $searchResults = d.querySelector(".search-results");
 
       if (!api.loading && scrollTop + clientHeight >= scrollHeight - 50) {
         api.loading = true;
